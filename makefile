@@ -9,7 +9,7 @@
 # Copyright     : copyright 2014
 # Description   : Programming Assignment 1 in C++
 ###########################################################
-EXEC =a.out
+EXEC =sem
 CC =g++
 SOURCES=A1.cpp
 FLAGS= -lpthread -lposix4
