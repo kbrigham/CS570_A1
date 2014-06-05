@@ -1,9 +1,7 @@
 //============================================================================
 // Name        : A1.cpp
-// Author      : Katie Brigham, Shawn Vega
-// Version     :
-// Copyright   : 
-// Description : Hello World in C++, Ansi-style
+// Author      : Katie Brigham MASC1420, Shawn Vega MASC1440
+// Description : Assignment 1, CS570 Summer 2014
 //============================================================================
 #include "A1.h"
 
@@ -12,21 +10,24 @@ sem_t sem;
 ofstream outFile;
 
 void error(std::string msg) {
+//error format
 	std::cerr << "Error " << errno << " - " << msg << "\n";
 }
 void createShared(){
+//create specified text file
 	outFile.open ("SHARED.txt");
 	outFile << (int)getpid() << "\r\n";
 	outFile.close();
 }
 void createSem(){
+//creates Semaphore & error checking
 	if (sem_init(&sem, 0, 1) !=0) {
 		error("Error creating semaphore");
 		exit(1);
 	}
 }
-
 void *printThreadID(void* num){
+//if even numbered thread wait 2 seconds, else wait 3 seconds
     if((int)num % 2 ==0)
         sleep(2);
     else
@@ -41,7 +42,6 @@ void *printThreadID(void* num){
     sem_post(&sem);
 	pthread_exit(NULL);
 }
-
 void createThreads(int threadCount){
 	int thread;
 	pthread_t threads[threadCount];
@@ -61,8 +61,9 @@ void createThreads(int threadCount){
 }
 
 int main() {
-	int threadCount = 10;
-
+	int threadCount = 6;//assignment instructions varied with 6
+						//on the top and 10 on the bottom
+						//so here we can specify. 
 	createShared();
 	createSem();
 	createThreads(threadCount);

@@ -1,14 +1,9 @@
-/*
- * A1.h
- *
- *  Created on: May 29, 2014
- *      Author: Katie Brigham, Shawn Vega
- */
-/*
- * what do do here:
- * #defines
- * #includes
-*/
+//============================================================================
+// Name        : A1.h
+// Author      : Katie Brigham MASC1420, Shawn Vega MASC1440
+// Description : Assignment 1, CS570 Summer 2014
+//============================================================================
+
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
